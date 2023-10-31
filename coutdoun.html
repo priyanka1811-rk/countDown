@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	</style>
+</head>
+<head>
+	<title>countdown</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		main {
+	    width: 100%;
+	    text-align: center;
+	    background: aliceblue;
+	    padding-top: 50px;
+	    padding-bottom: 100px;
+	  }
+
+		.divide {
+		    display: flex;
+		    justify-content: center;
+		    padding: 50px 0 0 0; 
+		}
+		h1 {
+	    margin: 50px 0 0 0;
+	    font-size: 40px;
+	    color: blueviolet;
+	 }
+		.input input {display: block;text-align: center;padding: 10px;border-radius: 5px;font-size: 25px;border-color: #8a2be240;height: 45px;width: 136px;font-weight: 700;}
+
+		.input {
+		    margin-left: 10px;
+		}
+
+		.input label {
+		    margin-top: 10px;
+		    display: block;
+		}
+	</style>
+<body>
+	<main>
+		<div class="head-wrap">
+			<span style="
+			    font-size: 30px;
+			    color: black;
+			    font-weight: 900;
+			    text-decoration: underline;
+			">Time Start Now</span><h1 id="head">Start CountDown From 11 June </h1>
+		</div>
+		<div class="divide">
+			<div class="input day-input">
+				<input type="text" name="day" value="0">
+				<label>Days</label>
+			</div>
+			<div class="input hr-input">
+				<input type="text" name="hr" value="0">
+				<label>Hours</label>
+			</div>
+			<div class="input mint-input">
+				<input type="text" name="mint" value="0">
+				<label>Mintus</label>
+			</div>
+			<div class="input sec-input">
+				<input type="text" name="sec" value="0">
+				<label>Seconds</label>
+			</div>
+		</div>
+	</main>
+	<script>
+			//Try myself
+
+			const fixDate = '16 November 2029 00:00 am';
+			const head = document.querySelector('#head').innerHTML = fixDate;
+			const inputs = document.querySelectorAll('input');
+			// console.log(inputs)
+
+			function countDown(){
+				const end = new Date(fixDate);
+				const now = new Date();
+				const diff = (end - now)/1000;
+
+				// console.log(diff);
+				inputs[0].value = Math.floor(diff/60/60/24);
+				inputs[1].value = Math.floor(diff/60/60)%24;
+				inputs[2].value = Math.floor(diff/60)%60;
+				inputs[3].value = Math.floor(diff)%60;
+			}
+			countDown();
+
+			setInterval(
+				() =>{
+					1000,
+					countDown();
+				}
+				) 
+
+
+
+
+
+
+
+
+
+		//You tube code
+
+
+		// const endDate = "31 Dec 2023 00:00 PM";
+
+		// document.getElementById("head").innerText = endDate;
+		// const inputs = document.querySelectorAll("input");
+
+		// function clock(){
+		// 	const end = new Date(endDate);
+		// 	const now = new Date();
+		// 	const diff = (end - now)/1000;
+		// 	inputs[0].value = Math.floor(diff/3600/24);
+		// 	inputs[1].value = Math.floor(diff/3600)%24;
+		// 	inputs[2].value = Math.floor(diff/60) % 60;
+		// 	inputs[3].value = Math.floor(diff) % 60;
+
+
+		// }
+		// // function initial call
+		// clock();
+
+		// //clock() call in every seconds
+		// setInterval(
+		// 		()=>{
+		// 			clock()
+		// 		},
+		// 		1000
+		// 	)
+
+		/*
+				1 day = 24h.
+				1h. = 60 min
+				1min = 60sec
+		*/ 
+	</script>
+</body>
+</html>
